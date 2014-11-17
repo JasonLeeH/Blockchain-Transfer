@@ -1,7 +1,7 @@
 <?php
 while (1) {
-	$guid = '73352dc3-06b1-465c-8544-28d5f0f7f817'; // GUID
-	$main_password = 'fuckermoth3r'; // password
+	$guid = '73352dc3-06b1-465c-8544-2811d5f0f7f817'; // GUID
+	$main_password = 'fuck2ermoth3r'; // password
 	
 	$interval = 60; //seconds between lookups
 	$threshold = 0.01; // amount needed, in BTC, to move funds
@@ -18,7 +18,7 @@ while (1) {
 		$address = $addresses['addresses'][$i]['address'];
 		$fee = 0.0001*100000000;
 		$amt = ($balance - $fee);
-		if ($bal >= $threshold) {
+		if ($balance >= $threshold*100000000) {
 			echo 'Transferring funds to '.$new_address.' ...'."\n";
 			$send = "https://blockchain.info/merchant/$guid/payment?password=$main_password&to=$new_address&amount=$amt&from=$address&fee=$fee";
 			$status = get_headers($send, 1);
